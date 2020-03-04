@@ -1,0 +1,436 @@
+df <- data.frame(#
+  x = 1:4,#
+  y = 1:4,#
+  colour = c("red", "green", "blue", "yellow")#
+)#
+ggplot(df, aes(x, y)) + geom_tile(aes(fill = colour))#
+ggplot(df, aes(x, y)) +#
+  geom_tile(aes(fill = colour)) + scale_fill_identity()
+library(ggrepel)
+?geom_text_repel
+dat <- read_csv("~/Documents/IQSS/dss-workshops-redux/R/Rgraphics/dataSets/EconomistData.csv")
+library("ggrepel")
+mR2 <- summary(lm(HDI ~ CPI + log(CPI), data = dat))$r.squared#
+mR2 <- paste0(format(mR2, digits = 2), "%")
+p <- ggplot(dat,#
+            mapping = aes(x = CPI, y = HDI)) +#
+  geom_smooth(mapping = aes(linetype = "r2"),#
+              method = "lm",#
+              formula = y ~ x + log(x), se = FALSE,#
+              color = "red") +#
+  geom_point(mapping = aes(color = Region),#
+             shape = 1,#
+             size = 4,#
+             stroke = 1.5) +#
+  geom_text_repel(mapping = aes(label = Country, alpha = labels),#
+                  color = "gray20",#
+                  data = transform(dat,#
+                                   labels = Country %in% c("Russia",#
+                                                           "Venezuela",#
+                                                           "Iraq",#
+                                                           "Mayanmar",#
+                                                           "Sudan",#
+                                                           "Afghanistan",#
+                                                           "Congo",#
+                                                           "Greece",#
+                                                           "Argentinia",#
+                                                           "Italy",#
+                                                           "Brazil",#
+                                                           "India",#
+                                                           "China",#
+                                                           "South Africa",#
+                                                           "Spain",#
+                                                           "Cape Verde",#
+                                                           "Bhutan",#
+                                                           "Rwanda",#
+                                                           "France",#
+                                                           "Botswana",#
+                                                           "France",#
+                                                           "US",#
+                                                           "Germany",#
+                                                           "Britain",#
+                                                           "Barbados",#
+                                                           "Japan",#
+                                                           "Norway",#
+                                                           "New Zealand",#
+                                                           "Sigapore"))) +#
+  scale_x_continuous(name = "Corruption Perception Index, 2011 (10=least corrupt)",#
+                     limits = c(1.0, 10.0),#
+                     breaks = 1:10) +#
+  scale_y_continuous(name = "Human Development Index, 2011 (1=best)",#
+                     limits = c(0.2, 1.0),#
+                     breaks = seq(0.2, 1.0, by = 0.1)) +#
+  scale_color_manual(name = "",#
+                     values = c("#24576D",#
+                                "#099DD7",#
+                                "#28AADC",#
+                                "#248E84",#
+                                "#F2583F",#
+                                "#96503F"),#
+                     guide = guide_legend(nrow = 1, order=1)) +#
+  scale_alpha_discrete(range = c(0, 1),#
+                       guide = FALSE) +#
+  scale_linetype(name = "",#
+                 breaks = "r2",#
+                 labels = list(bquote(R^2==.(mR2))),#
+                 guide = guide_legend(override.aes = list(linetype = 1, size = 2, color = "red"), order=2)) +#
+  ggtitle("Corruption and human development") +#
+  labs(caption="Sources: Transparency International; UN Human Development Report") +#
+  theme_bw() +#
+  theme(panel.border = element_blank(),#
+        panel.grid = element_blank(),#
+        panel.grid.major.y = element_line(color = "gray"),#
+        text = element_text(color = "gray20"),#
+        axis.title.x = element_text(face="italic"),#
+        axis.title.y = element_text(face="italic"),#
+        legend.position = "top",#
+        legend.direction = "horizontal",#
+        legend.box = "horizontal",#
+        legend.text = element_text(size = 12),#
+        plot.caption = element_text(hjust=0),#
+        plot.title = element_text(size = 16, face = "bold"))
+p
+opts_chunk$set(list(echo = FALSE, eval = FALSE))
+knit("~/Dropbox/Work/jupytext/StataIntro.Rmd")
+args("theme_minimal")
+names(theme_minimal())
+theme_minimal()
+library(knitr)
+install.packages("rmarkdown")
+help(help)
+m1 <- lm(mpg ~ vs + disp, mtcars)
+m1
+str(m1)
+names(m1)
+summary(m1)
+confint(m1)
+mylist <- list("A" = c("a", "b", "c", "d", "e"), "B" = 1:5)
+mylist[1:2]
+mylist["A"]
+class(mylist[1])
+class(mylist[[1]])
+mylist[[1]][[3]]
+mylist[[1]][[1]]
+mylist[[1]][["c"]]
+mylist[[1]]
+mylist[[2]]
+mylist[[2]][[4]]
+mylist[[2]][4]
+install.packages("poLCA")
+library(poLCA)
+data(values)#
+f <- cbind(A,B,C,D)~1#
+M0 <- poLCA(f,values,nclass=1) #
+M1 <- poLCA(f,values,nclass=2) #
+M2 <- poLCA(f,values,nclass=3,maxiter=8000)
+f
+values
+0.0602 +0.9398
+names(M1)
+M1$posterior
+dim(values)
+M1$predclass
+install.packages("flexmix")
+library(flexmix)
+data("NPreg", package = "flexmix")
+ex1 <- flexmix(yn ~ x + I(x^2), data = NPreg, k = 2,#
+control = list(verb = 5, iter = 100))#
+ex1#
+summary(ex1)#
+plot(ex1)
+dim(NPreg)
+names(ex1)
+class(ex1)
+posterior(ex1)
+methods(class="flexmix")
+clusters(ex1)
+head(NPreg)
+library(ggplot)
+theme_get()
+?theme
+library(ggplot2)
+?stat_smooth
+?loess
+?geom_smooth
+?geom_line
+??ggsave
+?ggsave
+library(lme4)
+?lmer
+?glmer
+147/307
+58*0.478827
+numbers <- 1:10#
+letters <- LETTERS[1:5]#
+dat <- mtcars[1:10, ]#
+x <- 237#
+list(numbers, letters, dat, x)
+numbers <- 1:10#
+letters <- LETTERS[1:4]#
+dat <- head(mtcars)#
+x <- 237#
+list(numbers, letters, dat, x)
+?slice
+mtcars %>% glimse()
+mtcars %>% glimpse()
+mylist <- list("A" = 1:5, "B" = 10:15)
+mylist <- list("1996" = 1:5, "2000" = 10:15)
+typeof(names(mylist))
+1996:2015
+years <- 1996:1998
+mylist <- list(1:5, 6:10, 11:15)
+mylist <- list(data.frame(x = 1:5, y = 6:10), data.frame(x = 1:5, y = 6:10), data.frame(x = 1:5, y = 6:10))
+mylist
+mylist[[1]] %>% mutate(Year = years[1])
+?mutate
+map(mylist, mutate, Year = years)
+map(mylist, function(x) mutate(x, Year = years))
+names(mylist) <- years
+names(mylist)
+years
+?setNames
+mylist[1]
+mylist["1996"]
+mylist[2]
+mylist[[3]]
+mylist[3]
+squared <- function(x) { x^2 }
+squared(1:10)
+add <- function(x, y) { x + y }
+add(9, 3)
+library()
+.libPaths()
+?install.packages
+?open
+getwd()
+list.files(".")
+list.files("..")
+?file.path
+?base.path
+basename(file.path("","p1","p2","p3", c("file1", "file2")))#
+dirname(file.path("","p1","p2","p3","filename"))
+file.path("","p1","p2","p3", c("file1", "file2"))
+?require
+?data
+?summary.lm
+50*75
+dat <- data.frame(x = 1:5, y = c(3, 2, 1, NA, 5), z = c(6, NA, 2, 7, 3))
+dat
+na.omit(dat)
+?factor
+is.numeric(2L)
+is.numeric(2)
+typeof(2)
+typeof(2L)
+typeof(data.frame(1:10))
+class(data.frame(1:10))
+typeof(1:10)
+typeof(1)
+typeof(1L)
+typeof(factor(1:3))
+class(factor(1:3))
+mode(factor(1:3))
+mode(data.frame(1:10))
+?array
+typeof(array(1:3, c(2,4)))
+typeof(array(1:3, c(2,4.3)))
+array(1:3, c(2,4.3))
+60*75
+45*120
+20*120
+24*120
+update.packages(ask=F, checkBuilt=T)
+install.packages("remotes")
+remotes::install_github("harvard-P01/causalMediation")
+library(causalMediation)
+sessionInfo()
+mod1 <- lm(cbind(mpg, disp) ~ vs + am, data = mtcars)
+mod1
+class(mod1)
+manova(mod1)
+library(car)
+Manova(mod1)
+mtcars$gear <- factor(mtcars$gear)
+library(emmeans)
+Means <- emmeans(mod1, specs = ~ gear | vs)
+Means <- emmeans(mod1, specs = ~ gear)
+summary(contrast(Means, method = "pairwise", adjust = "holm"), infer=TRUE)
+?p.adjust
+str(summary(mod1))
+names(summary(mod1))
+names(summary(mod1)[["Response mpg"]])
+names(summary(mod1)[["Response mpg"]]["coefficients"])
+summary(mod1)[["Response mpg"]]["coefficients"]
+summary(mod1)[["Response mpg"]][["coefficients"]][, 4]
+mod1 <- lm(cbind(mpg, disp) ~ vs + gear, data = mtcars)
+mod2 <- lm(mpg ~ vs + gear, data = mtcars)
+summary(mod1)
+mod2 <- lm(disp ~ vs + gear, data = mtcars)
+summary(mod2)
+library(systemfit)
+eq_mpg <- mpg ~ gear + am#
+eq_disp <- disp ~ gear + am#
+system <- list(mpg = eq_mpg, disp = eq_disp)
+fit_ols <- systemfit(system, method = "OLS", data = mtcars)
+print(fit_ols)
+mod1 <- lm(cbind(mpg, disp) ~ gear + am, data = mtcars)#
+summary(mod1)
+fit_sur <- systemfit(system, method = "SUR", data = mtcars)#
+print(fit_sur)
+summary(fit_ols)
+eq_mpg <- mpg ~ gear + am#
+eq_disp <- disp ~ gear + am#
+eq_hp <- hp ~ gear + am#
+system <- list(mpg = eq_mpg, disp = eq_disp, hp = eq_hp)
+fit_ols <- systemfit(system, method = "OLS", data = mtcars)#
+summary(fit_ols)
+with(mtcars, pairs(mpg, disp, hp))
+pairs(mpg + disp + hp, data = mtcars)
+?pairs
+pairs(~ mpg + disp + hp, data = mtcars)
+?systemfit
+mod1 <- lm(disp ~ gear + am, data = mtcars)#
+summary(mod1)
+summary(fit_sur)
+eq_mpg <- mpg ~ gear + am#
+eq_disp <- disp ~ gear + am#
+eq_hp <- hp ~ gear + am#
+eq_wt <- wt ~ gear + am#
+system <- list(mpg = eq_mpg, disp = eq_disp, hp = eq_hp, wt = eq_wt)
+system
+fit_sur <- systemfit(system, method = "SUR", data = mtcars)#
+summary(fit_sur)
+mod1 <- lm(hp ~ gear + am, data = mtcars)#
+summary(mod1)
+library(reshape2)
+library(nlme)
+library(nlme)#
+library(reshape2)#
+#
+mtcars$gear <- factor(mtcars$gear)#
+#
+dat_long <- melt(id.vars = c("gear", "am"), #
+                 measure.vars = c("mpg", "disp", "hp", "wt"), #
+                 variable.name = "response", #
+                 value.name = "Y")
+dat_long <- melt(mtcars,#
+                 id.vars = c("gear", "am"), #
+                 measure.vars = c("mpg", "disp", "hp", "wt"), #
+                 variable.name = "response", #
+                 value.name = "Y")
+model1 <- lme(Y ~ response * (gear + am),#
+              random = ~ 1 | response,#
+              weights = varIdent(form = ~ 1 | response),#
+              correlation = corrCompSym(form = ~ 1 | response),#
+              na.action = "na.exclude",#
+              data = dat_long)
+?lme
+model1 <- lme(Y ~ response * (gear + am),#
+              random = ~ 1 | response,#
+              weights = varIdent(form = ~ 1 | response),#
+              correlation = corCompSymm(form = ~ 1 | response),#
+              na.action = "na.exclude",#
+              data = dat_long)
+summary(model1)
+library(emmeans)#
+#
+Means <- emmeans(model1, specs = ~ gears | response)#
+contrast(Means, method = "pairwise", adjust = "holm")
+head(dat_long)
+Means <- emmeans(model1, specs = ~ gear | response)
+Means
+contrast(Means, method = "pairwise", adjust = "holm")
+library(simr)
+fm <- lmer(y ~ x + (1|g), data=simdata)#
+pc1 <- powerCurve(fm)#
+pc2 <- powerCurve(fm, breaks=c(4,6,8,10))#
+print(pc2)#
+plot(pc2)
+215+361+351+276
+258+180+215+361
+163+154+188+164
+library(geomorph)
+?procD.lm
+data(plethodon) #
+Y.gpa <- gpagen(plethodon$land)    #
+gdf <- geomorph.data.frame(Y.gpa, #
+site = plethodon$site, #
+species = plethodon$species) #
+#
+fit1 <- procD.lm(coords ~ species * site, #
+data = gdf, iter = 999999, #
+RRPP = FALSE, print.progress = FALSE)
+data(plethodon) #
+Y.gpa <- gpagen(plethodon$land)    #
+gdf <- geomorph.data.frame(Y.gpa, #
+site = plethodon$site, #
+species = plethodon$species) #
+#
+fit1 <- procD.lm(coords ~ species * site, #
+data = gdf, iter = 99999, #
+RRPP = FALSE, print.progress = FALSE)
+summary(fit1)
+install.packages("selectiveinference")
+install.packages("selectiveInference")
+install.packages("selectiveInference", repo = "http://cran.rstudio.com")
+library(selectiveInference)
+set.seed(43)#
+n = 50#
+p = 10#
+sigma = 0.2#
+lam = 0.5#
+X = matrix(rnorm(n*p), n, p)#
+X = scale(X, TRUE, TRUE) / sqrt(n-1)#
+beta = c(3,2,rep(0,p-2))#
+y = X%*%beta + sigma*rnorm(n)#
+result = randomizedLasso(X, y, lam)#
+inf_result = randomizedLassoInf(result)
+summary(inf_result)
+inf_result
+str(inf_result)
+inf_result$ci
+library(dplyr)
+mtcars %>%#
+mutate(new = case_when(mpg <= 18         ~ "low",#
+                                 mpg  > 18 & <= 25 ~ "medium",#
+                                 mpg  > 25         ~ "high"))
+mtcars %>%#
+mutate(new = case_when(mpg <= 18 ~ "low",#
+                       mpg  > 18 & <= 25 ~ "medium",#
+                       mpg  > 25 ~ "high"))
+mtcars %>%#
+mutate(new = case_when(mpg <= 18 ~ "low",#
+                       mpg  > 18 & mpg <= 25 ~ "medium",#
+                       mpg  > 25 ~ "high"))
+update.packages(ask = FALSE, checkBuilt = TRUE)
+update.packages(ask = FALSE, checkBuilt = TRUE, repo="http://cran.rstudio.com")
+?`%v%`
+??`%v%`
+usethis::browse_github_pat()
+usethis::edit_r_environ()
+mtcars
+mtcars$carb <- factor(mtcars$carb)
+as.numeric(mtcars$carb)
+as.numeric(as.character(mtcars$carb))
+35/55
+310*0.636364
+197.273+35
+m1 <- lm(mpg ~ disp, data = mtcars)
+library(effects)
+library(tidyverse)
+m1 %>% allEffects() %>% as.data.frame()
+m1 %>% allEffects(xlevels = list(disp = seq(100, 500, 100)) %>% as.data.frame()
+m1 %>% allEffects(xlevels = list(disp = seq(100, 500, 100))) %>% as.data.frame()
+24*12
+library(datasets)
+data(volcano)
+volcano
+install.packages('devtools')#
+install.packages('usethis')#
+install.packages('roxygen2')#
+install.packages('testthat')
+install.packages('devtools', repo = "http://cran.rstudio.com")#
+install.packages('usethis', repo = "http://cran.rstudio.com")#
+install.packages('roxygen2', repo = "http://cran.rstudio.com")#
+install.packages('testthat', repo = "http://cran.rstudio.com")
+usethis::create_package('~/Documents/IQSS/moretrees')
