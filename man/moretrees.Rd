@@ -148,6 +148,41 @@ All about functions!
 Describe MOReTreeS model and all parameters here.
 }
 
+\examples{
+ 
+load("X.rda")
+load("W.rda")
+load("y.rda")
+load("outcomes.rda")
+
+mod <- moretrees(
+  X = X, 
+  W = W, 
+  y = y, 
+  outcomes = outcomes,
+  W_method = "shared",
+  tr = ccs_tree(7)$tr, 
+  family = "bernoulli",
+  update_hyper = TRUE, 
+  update_hyper_freq = 1,
+  hyper_fixed = list(tau = 3, 
+                     rho = 0.5, 
+                     omega = 2),
+  tol = 1E-8, 
+  max_iter = 4,
+  print_freq = 1,
+  nrestarts = 1,
+  get_ml = FALSE,
+  log_dir = ".")
+)
+
+beta_est <- mod$beta_est
+beta_moretrees <- mod$beta_moretrees
+beta_ml <- mod$beta_ml
+theta_est <- mod$theta_est
+mod_restarts <- mod$mod_restarts
+mod1 <- mod$mod
+}
 \seealso{
 Other MOReTreeS functions: 
 \code{\link{moretrees_compute_betas}()},
