@@ -111,7 +111,7 @@
 #'   print_freq = 1,
 #'   nrestarts = 1,
 #'   get_ml = FALSE,
-#'   log_dir = ".")
+#'   log_dir = "."
 #' )
 #' 
 #' beta_est <- mod$beta_est
