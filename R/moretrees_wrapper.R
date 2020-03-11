@@ -89,11 +89,9 @@
 #' 1. estimated coefficients and credible intervals; 
 #' 2. outputs from variational inference algorithm
 #' @examples 
-#'  
-#' load("X.rda")
-#' load("W.rda")
-#' load("y.rda")
-#' load("outcomes.rda")
+#' 
+#' # test dataset 
+#' load(system.file("extdata", "example_data.Rdata", package = "moretrees"))
 #' 
 #' mod <- moretrees(
 #'   X = X, 

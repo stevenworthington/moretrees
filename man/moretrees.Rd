@@ -149,11 +149,9 @@ Describe MOReTreeS model and all parameters here.
 }
 
 \examples{
- 
-load("X.rda")
-load("W.rda")
-load("y.rda")
-load("outcomes.rda")
+
+# test dataset 
+load(system.file("extdata", "example_data.Rdata", package = "moretrees"))
 
 mod <- moretrees(
   X = X, 
