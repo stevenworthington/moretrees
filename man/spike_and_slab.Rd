@@ -44,7 +44,7 @@ vector specifying the columns of X that belong to group g.}
 either "bernoulli" (for classification) or "gaussian" (for regression)}
 
 \item{ci_level}{A number between 0 and 1 giving the desired credible interval.
-For example, ci_level = 0.95 (the default) returns a 95% credible interval.}
+For example, ci_level = 0.95 (the default) returns a 95\% credible interval.}
 
 \item{tol}{Convergence tolerance for ELBO. Default = 1E-8.}
 
@@ -111,7 +111,7 @@ A list containing the following elements:
 Here's a brief description.
   \code{spike_and_slab_normal} performs group variable selection via a spike
   and slab prior. The posterior is approximated via variational inference.
-  This function returns coefficient estimates and 95% credible intervals.
+  This function returns coefficient estimates and 95\% credible intervals.
 }
 \details{
 All the details go here!

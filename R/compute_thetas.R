@@ -13,7 +13,7 @@
 #' @export
 #' @param mod List containing outputs from spike and slab VI algorithm
 #' @param ci_level A number between 0 and 1 giving the desired credible interval.
-#' For example, ci_level = 0.95 (the default) returns a 95% credible interval.
+#' For example, ci_level = 0.95 (the default) returns a 95\% credible interval.
 #' @return A matrix containing estimated coefficients and credible intervals.
 #' @examples 
 #' @family spike and slab functions

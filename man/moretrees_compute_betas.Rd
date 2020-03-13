@@ -12,7 +12,7 @@ moretrees_compute_betas(mod, ci_level, A_leaves, outcomes)
 \item{mod}{List containing outputs from spike and slab VI algorithm}
 
 \item{ci_level}{A number between 0 and 1 giving the desired credible interval.
-For example, ci_level = 0.95 (the default) returns a 95% credible interval.}
+For example, ci_level = 0.95 (the default) returns a 95\% credible interval.}
 
 \item{A_leaves}{pL x p sparse ancestor Matrix where rows correspond to leaves
 of tree (outcomes) and columns correspond to nodes on tree. Results in mod
