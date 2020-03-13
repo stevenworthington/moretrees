@@ -5,7 +5,7 @@
 \title{Here's a brief description.
   \code{spike_and_slab_normal} performs group variable selection via a spike
   and slab prior. The posterior is approximated via variational inference.
-  This function returns coefficient estimates and 95% credible intervals.}
+  This function returns coefficient estimates and 95\% credible intervals.}
 \usage{
 ml_by_group(X, W = NULL, y, outcomes, outcome_groups, ci_level, family)
 }
@@ -27,7 +27,7 @@ If family = "gaussian", y must be a numeric vector containing continuous data.}
 indiciating which outcomes belong to that group.}
 
 \item{ci_level}{A number between 0 and 1 giving the desired credible interval.
-For example, ci_level = 0.95 (the default) returns a 95% credible interval.}
+For example, ci_level = 0.95 (the default) returns a 95\% credible interval.}
 
 \item{family}{A string specifying the distribution of the outcomes: 
 either "bernoulli" (for classification) or "gaussian" (for regression)}

@@ -5,7 +5,7 @@
 #' Here's a brief description.
 #'   \code{spike_and_slab_normal} performs group variable selection via a spike
 #'   and slab prior. The posterior is approximated via variational inference.
-#'   This function returns coefficient estimates and 95% credible intervals.
+#'   This function returns coefficient estimates and 95\% credible intervals.
 #' 
 #' All the details go here!
 #' 
@@ -26,7 +26,7 @@
 #' @param family A string specifying the distribution of the outcomes: 
 #' either "bernoulli" (for classification) or "gaussian" (for regression)
 #' @param ci_level A number between 0 and 1 giving the desired credible interval.
-#' For example, ci_level = 0.95 (the default) returns a 95% credible interval.
+#' For example, ci_level = 0.95 (the default) returns a 95\% credible interval.
 #' @return A list containing the following elements:
 #' 1. estimated coefficients and credible intervals; 
 #' 2. outputs from variational inference algorithm
