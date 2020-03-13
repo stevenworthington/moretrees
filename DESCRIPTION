@@ -11,7 +11,7 @@ Description: Provides functions for implementingmulti-outcome regression
     variational inference (VI). Also performs spike-and-slab variable
     selection with the same three likelihoods.
 Depends: R (>= 3.1.0)
-License: MIT + file LICENSE
+License: CC0
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -23,7 +23,9 @@ Imports:
     magrittr (>= 1.5),
     doParallel (>= 1.0.15),
     Rcpp (>= 1.0.3),
-    RcppEigen (>= 0.3.3.7.0)
+    RcppEigen (>= 0.3.3.7.0),
+    emulator (>= 1.2-20),
+    foreach (>= 1.4.8)
 RoxygenNote: 7.0.2
 Suggests: 
     testthat,

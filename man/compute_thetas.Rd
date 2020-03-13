@@ -11,7 +11,11 @@ compute_thetas(mod, ci_level, method, dsgn)
 \arguments{
 \item{mod}{List containing outputs from spike and slab VI algorithm}
 
-\item{ci_level}{A number between 0 and 1 giving the desired credible interval.
+\item{ci_level}{A number between 0 and 1 giving the desired credible interval.}
+
+\item{method}{Description here}
+
+\item{dsgn}{Description here
 For example, ci_level = 0.95 (the default) returns a 95\% credible interval.}
 }
 \value{
