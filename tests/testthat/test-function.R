@@ -1,3 +1,3 @@
-test_that("log1p_exp(19) is equal to 21", {
-  expect_equal(log1p_exp(19), 21)
+test_that("log1p_exp(21) is equal to 21", {
+  expect_equal(log1p_exp(21), 21)
 })
