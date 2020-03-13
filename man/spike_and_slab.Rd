@@ -44,7 +44,7 @@ vector specifying the columns of X that belong to group g.}
 either "bernoulli" (for classification) or "gaussian" (for regression)}
 
 \item{ci_level}{A number between 0 and 1 giving the desired credible interval.
-For example, ci_level = 0.95 (the default) returns a 95\% credible interval.}
+For example, ci_level = 0.95 (the default) returns a 95% credible interval.}
 
 \item{tol}{Convergence tolerance for ELBO. Default = 1E-8.}
 

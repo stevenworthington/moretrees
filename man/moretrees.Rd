@@ -66,7 +66,7 @@ W will be estimated separately for each outcome (no infromation sharing).}
 either "bernoulli" (for classification) or "gaussian" (for regression)}
 
 \item{ci_level}{A number between 0 and 1 giving the desired credible interval. 
-For example, ci_level = 0.95 (the default) returns a 95\% credible interval}
+For example, ci_level = 0.95 (the default) returns a 95% credible interval}
 
 \item{get_ml}{If TRUE, moretrees will also return the maximum likelihood estimates of the
 coefficients for each outcome group discovered by the model. The default is FALSE.}

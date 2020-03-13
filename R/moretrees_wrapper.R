@@ -39,7 +39,7 @@
 #' @param family A string specifying the distribution of the outcomes: 
 #' either "bernoulli" (for classification) or "gaussian" (for regression)
 #' @param ci_level A number between 0 and 1 giving the desired credible interval. 
-#' For example, ci_level = 0.95 (the default) returns a 95\% credible interval
+#' For example, ci_level = 0.95 (the default) returns a 95% credible interval
 #' @param get_ml If TRUE, moretrees will also return the maximum likelihood estimates of the
 #' coefficients for each outcome group discovered by the model. The default is FALSE.
 #' @param tol Convergence tolerance for ELBO. Default = 1E-8.

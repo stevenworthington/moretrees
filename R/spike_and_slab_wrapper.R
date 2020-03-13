@@ -26,7 +26,7 @@
 #' @param family A string specifying the distribution of the outcomes: 
 #' either "bernoulli" (for classification) or "gaussian" (for regression)
 #' @param ci_level A number between 0 and 1 giving the desired credible interval.
-#' For example, ci_level = 0.95 (the default) returns a 95\% credible interval.
+#' For example, ci_level = 0.95 (the default) returns a 95% credible interval.
 #' @param tol Convergence tolerance for ELBO. Default = 1E-8.
 #' @param max_iter Maximum number of iterations of the VI algorithm.
 #' @param nrestarts Number of random re-starts of the VI algorithm. The result that 
